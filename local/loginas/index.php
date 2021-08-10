@@ -85,7 +85,11 @@ foreach ($users as $id => $user) {
         if ($roles = get_user_roles($coursecontext, $user->id)) {
             $strrole = [];
             foreach ($roles as $role) {
-                $strrole[] = $role->name;
+                if (!empty($role->name)) {
+                    $strrole[] = $role->name;
+                } else {
+                    $strrole[] = $role->shortname;
+                }
             }
             $html .= new lang_string('role_in_this_course', 'local_loginas', implode(', ', $strrole));
         }
