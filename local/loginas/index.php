@@ -67,19 +67,24 @@ $select = $DB->sql_like('email', ':email', false);
 $params = ['email' => 'moodle_test_%'];
 
 $users = $DB->get_records_select('user', $select, $params, 'username', 'id, username');
-
+$html = '
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">'. get_string('username', 'local_loginas') .'</th>
+      <th scope="col">'. get_string('role_in_this_course', 'local_loginas') .'</th>
+      <th scope="col">'. get_string('action', 'local_loginas') .'</th>
+    </tr>
+  </thead>
+  <tbody>
+';
 foreach ($users as $id => $user) {
 
     // Only use the user who are enrolled in the course.
     if (is_enrolled($coursecontext, $id, '', false)) {
-        $url = new moodle_url(
-            '/course/loginas.php',
-            ['id' => $course->id, 'user' => $user->id, 'sesskey' => sesskey()] // , 'redirect' => $redirect
-            // ['id' => $course->id, 'user' => $user->id, 'sesskey' => sesskey(), 'redirect' => $redirect]
-        );
-        $html = '<p>';
-        $html .= new lang_string('login_as', 'local_loginas');
-        $html .= '<a href="'.$url->out().'">'.$user->username.'</a>';
+
+        $html .= '<tr>';
+        $html .= '<td>'. $user->username.'</td>';
 
         // Display the user role in the course.
         if ($roles = get_user_roles($coursecontext, $user->id)) {
@@ -91,12 +96,27 @@ foreach ($users as $id => $user) {
                     $strrole[] = $role->shortname;
                 }
             }
-            $html .= new lang_string('role_in_this_course', 'local_loginas', implode(', ', $strrole));
+            $html .= '<td>' . implode(', ', $strrole) . '</td>';
         }
-        $html .= '</p>';
-        echo $html;
+
+        $url = new moodle_url(
+            '/course/loginas.php',
+            ['id' => $course->id, 'user' => $user->id, 'sesskey' => sesskey()]
+        );
+
+        $link = '<a href="' . $url->out() . '">' . $user->username . '</a>';
+
+        $html .= '<td>' . new lang_string('login_as', 'local_loginas', $link) . '</td>';
+
+        $html .= '</tr>';
     }
 }
+
+$html .= '
+  </tbody>
+</table>';
+
+echo $html;
 
 // Render the Instruction and sections.
 // $renderable = new \mod_ainst\output\index_page($course);
