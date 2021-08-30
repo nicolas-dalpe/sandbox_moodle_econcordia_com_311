@@ -1,0 +1,41 @@
+.ec-page {
+	.navbar {
+		box-shadow: none;
+		top: 0;
+		right: 0;
+		left: 0;
+		padding: 10px;
+		//border: 10px solid $grey;
+		background: #fff;
+		max-height: 80px;
+
+		[data-action="toggle-drawer"] {
+			background: $grey-medium;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 35px;
+			height: 35px;
+			padding: 10px;
+			border-radius: 0;
+			img {
+				width: 100%;
+				height: auto;
+			}
+		}
+
+		.nav {
+			&.usernav {
+				.nav-item {
+					align-items: center;
+					#nav-notification-popover-container {
+						.nav-link {
+							display: flex;
+							align-items: center;
+						}
+					}
+				}
+			}
+		}
+	}
+}

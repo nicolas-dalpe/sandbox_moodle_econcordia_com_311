@@ -1,0 +1,155 @@
+.ec-banner {
+	position: relative;
+	padding-top: $padding;
+
+	&__content {
+		display: flex;
+		align-items: center;
+
+		@include media-breakpoint-down(sm) {
+			flex-direction: column;
+			text-align: center;
+		}
+	}
+
+	&__headings {
+		display: flex;
+		flex-direction: column;
+	}
+	h1, h2, img {
+		position: relative;
+		z-index: 1;
+	}
+	h1 {
+		color: $text;
+		font-size: 20px;
+		line-height: 24px;
+		font-weight: bold;
+		text-transform: uppercase;
+	}
+	h2 {
+		font-weight: normal;
+		font-size: 32px;
+		line-height: 45px;
+		@include media-breakpoint-down(sm) {
+			max-width: 100%;
+		}
+	}
+	img {
+		max-width: 65%;
+		margin-left: $padding;
+		box-shadow: 1px 8px 15px rgba(0,0,0,0.4);
+		@include media-breakpoint-down(lg) {
+			max-width: 50%;
+		}
+		@include media-breakpoint-down(sm) {
+			max-width: 100%;
+			margin-left: 0;
+		}
+	}
+	&:after {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		content: '';
+		//border-top: 600px solid $primary-light;
+		border-right: 150vw solid transparent;
+		z-index: 0;
+	}
+
+	&__lesson {
+		.ec-banner__content {
+			align-items: flex-start;
+
+			@include media-breakpoint-down(sm) {
+				text-align: left;
+			}
+		}
+		&:before {
+			position: absolute;
+			content: '';
+			top: 0;
+			left: 0;
+			right: 0;
+			background: $grey;
+			height: 150px;
+			z-index: 0;
+		}
+		&:after {
+			display: none;
+		}
+		.container {
+			position: relative;
+			z-index: 1;
+		}
+		h1 {
+			color: $text !important;
+		}
+		h2 {
+			max-width: 50%;
+		}
+		.ec-banner__shape {
+			position: relative;
+			min-height: 250px;
+			padding: 2*$padding;
+			clip-path: polygon(0 0, 100% 0, 100% 65%, 0% 100%);
+			background: #fff;
+			&:before {
+				position: absolute;
+				content: '';
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				clip-path: polygon(0 0, 100% 0, 100% 65%, 0% 100%);
+				z-index: 0;
+			}
+			@include media-breakpoint-down(sm) {
+				min-height: inherit;
+			}
+			&-wrapper {
+				max-width: 75vw;
+				width: 100%;
+				min-height: 250px;
+				margin: 0 auto;
+				filter: drop-shadow(1px 8px 15px rgba(0,0,0,0.4));
+				@include media-breakpoint-down(sm) {
+					min-height: inherit;
+					width: 100%;
+				}
+			}
+		}
+		.ec-separator {
+			width: 25%;
+			margin-left: 0;
+			margin-right: 0;
+			i {
+				&:last-child {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.has-region-side-pre {
+	.ec-banner {
+		img {
+			@include media-breakpoint-down(xl) {
+				max-width: 70%;
+			}
+			@include media-breakpoint-down(sm) {
+				max-width: 100%;
+			}
+		}
+	}
+}
+
+#page-course-edit,
+.path-grade,
+.path-user {
+	.ec-banner {
+		display: none;
+	}
+}

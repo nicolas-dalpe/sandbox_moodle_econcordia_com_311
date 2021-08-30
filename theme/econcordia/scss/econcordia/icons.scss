@@ -1,0 +1,10 @@
+.fa-bell {
+	width: 15px;
+    height: 15px;
+    margin: 0;
+    background: url([[pix:theme|i/notification]]) no-repeat center center;
+    background-size: contain;
+    &:before {
+        display: none;
+    }
+}

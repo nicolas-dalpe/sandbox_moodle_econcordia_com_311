@@ -1,0 +1,45 @@
+.tooltip {
+	&-inner {
+		padding: 10px;
+		border-radius: 10px;
+		border: 1px solid $grey-medium !important;
+		opacity: 1 !important;
+		ul {
+			li {
+				text-align: left;
+			}
+		}
+	}
+	&.bs-tooltip-top,
+	&.bs-tooltip-auto[x-placement^="top"] {
+		.arrow {
+			&:before {
+				border-top-color: $grey-medium;
+			}
+		}
+	}
+	&.bs-tooltip-right,
+	&.bs-tooltip-auto[x-placement^="right"] {
+		.arrow {
+			&:before {
+				border-right-color: $grey-medium;
+			}
+		}
+	}
+	&.bs-tooltip-left,
+	&.bs-tooltip-auto[x-placement^="left"] {
+		.arrow {
+			&:before {
+				border-left-color: $grey-medium;
+			}
+		}
+	}
+	&.bs-tooltip-bottom,
+	&.bs-tooltip-auto[x-placement^="bottom"] {
+		.arrow {
+			&:before {
+				border-bottom-color: $grey-medium;
+			}
+		}
+	}
+}

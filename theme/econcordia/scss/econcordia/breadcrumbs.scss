@@ -1,0 +1,21 @@
+.ec-breadcrumbs {
+	background: $grey;
+	padding: 10px 0;
+	.breadcrumb {
+		border: none;
+		li.breadcrumb-item {
+			font-size: 14px;
+			@include media-breakpoint-down(sm) {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+			a {
+				color: $text;
+			}
+
+			&:last-child {
+				font-weight: bold;
+			}
+		}
+	}
+}

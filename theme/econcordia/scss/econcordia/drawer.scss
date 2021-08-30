@@ -1,0 +1,17 @@
+.ec-page {
+	#nav-drawer {
+		top: 73px;
+		height: calc(100% - 73px);
+		padding: 10px;
+		.list-group {
+			.list-group-item {
+				.icon {
+					display: none;
+				}
+			}
+		}
+	}
+	[data-region=right-hand-drawer].drawer {
+		top: 58px;
+	}
+}

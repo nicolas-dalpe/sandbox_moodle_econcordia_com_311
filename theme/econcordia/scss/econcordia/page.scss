@@ -1,0 +1,114 @@
+#page-wrapper {
+	#page {
+		background: #fff;
+		margin-top: 80px;
+		overflow: hidden;
+		margin-right: 10px;
+		margin-bottom: 10px;
+		@media (max-width: 600px) {
+			margin-left: 0;
+		}
+	}
+
+	&.ec-page__activity {
+		#page {
+			background: none;
+			@include media-breakpoint-down(md) {
+				margin-right: 0;
+			}
+		}
+		#page-header {
+			display: none;
+		}
+		#page-content {
+			background: #fff;
+		}
+	}
+}
+
+
+/****************************/
+/*   Container 
+/****************************/
+.ec-page {
+	.container {
+		@include media-breakpoint-up(lg) {
+			max-width: 890px;
+			max-width: 60em;
+		}
+
+		@include media-breakpoint-down(md) {
+			max-width: 100%;
+		}
+	}
+}
+
+// ECONMT-33 - Lesson page design - Space between lesson banner and first section
+.ec-page__lesson-list {
+	#page-header {
+		> div {
+			padding-top: 0 !important;
+			padding-bottom: 0 !important;
+			.card-body {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+		}
+	}
+}
+
+#page-admin-index,
+#page-admin-plugins {
+	#page-wrapper {
+		#page {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}
+
+#region-main {
+	padding: 0;
+}
+
+// Hide unused stuff
+#page-header {
+	.page-context-header {
+		display: none;
+	}
+}
+
+// When there are blocks
+#page-wrapper{
+	.ec-main {
+		display: flex;
+		@include media-breakpoint-down(lg) {
+			flex-direction: column;
+		}
+		#page {
+			flex: inherit;
+			width: calc(100% - 380px);
+
+			@include media-breakpoint-down(lg) {
+				width: 100%;
+			}
+		}
+		[data-region="blocks-column"] {
+			position: fixed;
+			right: 10px;
+			margin-top: 80px;
+
+			@include media-breakpoint-down(lg) {
+				position: relative;
+				right: auto;
+				margin-top: $padding;
+				float: none;
+			}
+		}
+
+		#region-main-settings-menu.has-blocks, 
+		#region-main.has-blocks {
+			width: 100%;
+		}
+	}
+}

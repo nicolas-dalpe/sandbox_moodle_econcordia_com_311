@@ -1,0 +1,118 @@
+@import 'variables';
+
+html, body {
+	height: auto;
+	background: $grey;
+	color: $text;
+}
+
+
+/****************************/
+/*   General stuff
+/****************************/
+a:focus, a:active, button:focus, button:active, input:active, input:focus, [role="button"]:focus, [role="button"]:active {
+    outline: 2px dotted $primary !important;
+    box-shadow: none !important;
+}
+a:not([class]) {
+	&.focus, 
+	&:focus {
+		background: none;
+	}
+}
+
+/****************************/
+/*   Global
+/****************************/
+#region-main {
+	border: none;
+	background: none;
+}
+
+#page-footer {
+	display: none;
+}
+
+/****************************/
+/*   Aside
+/****************************/
+[data-region="blocks-column"] {
+	aside {
+		background: #fff;
+		border: 1px solid $grey-medium;
+	}
+}
+
+
+/****************************/
+/*   AVAILABILITY
+/****************************/
+.availabilityinfo {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	.badge {
+		display: block;
+	}
+}
+
+/****************************/
+/*   Separator
+/****************************/
+.ec-separator {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 80%;
+	margin: $padding auto;
+	height: 2px;
+	//background: $primary;
+	i {
+		display: block;
+		width: 10px;
+		height: 10px;
+		background: #fff;
+		//border: 2px solid $primary;
+		border-radius: 50%;
+	}
+}
+
+/****************************/
+/*   Shape
+/****************************/
+.ec-shape {
+	position: absolute;
+	min-height: 150px;
+	left: 0;
+	right: 0;
+	clip-path: polygon(0 0, 100% 0, 100% 65%, 0% 100%);
+	background: #fff;
+	&:before {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		clip-path: polygon(0 0, 100% 0, 100% 65%, 0% 100%);
+		z-index: 0;
+	}
+}
+
+
+/****************************/
+/*   Components
+/****************************/
+@import "activity";
+@import "banner";
+@import "breadcrumbs";
+@import "button";
+@import "card";
+@import "drawer";
+@import "icons";
+@import "navbar";
+@import "page";
+@import "tiles";
+@import "tooltip";
+@import "typography";

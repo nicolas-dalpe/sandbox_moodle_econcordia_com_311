@@ -1,0 +1,1107 @@
+ 
+.format-tiles {
+	.ec-page {
+		#abovetiles {
+			display: none;
+		}
+		#page {
+			.course-content {
+				ul {
+					li {
+						&.section {
+							&.main {
+								background: none;
+							}
+						}
+					}
+					.section {
+						@media screen and (max-width: 600px) {
+							background: none;
+						}
+					}
+				}
+			}
+		}
+
+		ul.tiles#multi_section_tiles {
+			max-width: inherit !important;
+			@media screen and (max-width: 600px) {
+				padding: 0;
+			}
+			li {
+				&.section {
+					.content {
+						margin: 0;
+					}
+				}
+			}
+		}
+
+		.tile,
+		.activity,
+		.subtile {
+			&.dimmed {
+				border-top: none;
+				.activityinstance {
+					opacity: 1 !important;
+				}
+			}
+			&:focus,
+			&:active {
+				outline: 2px dotted $primary;
+			}
+
+			.contentafterlink {
+				margin: 0;
+				position: absolute;
+				bottom: $padding;
+				z-index: 1;
+				.availabilityinfo {
+					position: relative;
+					left: auto;
+					bottom: auto;
+					font-size: 14px;
+					.badge {
+						background: none;
+						padding: 0;
+						font-size: 14px;
+						color: $grey-dark;
+						font-weight: normal;
+					}
+				}
+			}
+		}
+
+		.clickable-region {
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			height: 100%;
+			width: 100%;
+			z-index: 1;
+		}
+
+		/****************************/
+		/*   SECTION 0
+		/****************************/
+		#section-0 {
+			.subtiles {
+				margin: 0;
+				padding: 0;
+				display: flex;
+				justify-content: center;
+				width: 100%;
+				li {
+					flex-basis: inherit;
+					width: calc(25% - #{$padding}) !important;
+					min-height: 160px;
+					height: auto;
+					margin: $padding/2;
+					padding: 0;
+					border: none;
+					background: none;
+					background-image: none !important;
+					border-radius: $padding;
+
+					@include media-breakpoint-down(md) {
+						width: calc(33% - 40px) !important;
+					}
+					@media screen and (max-width: 680px) {
+						flex-basis: inherit !important;
+					}
+					@media screen and (max-width: 600px) {
+						width: 100% !important;
+						max-width: 100% !important;
+						min-height: 70px;
+					}
+
+					&:hover {
+						background: #fff !important;
+						box-shadow: 1px 1px 15px rgba(0,0,0,0.4);
+						cursor: pointer;
+						a {
+							text-decoration: underline;
+						}
+					}
+
+					.ec-activity__unread {
+						position: absolute;
+						top: 40px;
+						right: 55px; 
+						color: $notification;
+						font-size: 12px;
+						i {
+							display: inline-block;
+							width: 15px;
+    						height: 15px;
+    						margin: 0 0 10px 0;
+    						background: url([[pix:theme|i/notification-red]]) no-repeat center center;
+    						background-size: contain;
+						}
+					}
+
+					.ec-separator {
+						display: none;
+					}
+
+					.ec-shape {
+						display: none;
+					}
+
+					> div {
+						padding: 0;
+						.activityinstance {
+							padding: 0;
+						}
+					}
+
+					.instancename {
+						position: absolute;
+						top: $padding;
+						bottom: $padding;
+						left: $padding;
+						right: $padding;
+						height: auto;
+						width: auto;
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: flex-start;
+						z-index: 1;
+						@media screen and (max-width: 600px) {
+							flex-direction: row;
+							top: 10px;
+							bottom: 10px;
+						}
+					}
+					
+					.actions {
+						top: -16px !important;
+						right: -16px;
+					}
+
+					.activitytitle {
+						padding: 0;
+						//a {
+							padding-bottom: 0;
+							background: none;
+							color: $text !important;
+							font-size: 15px;
+							line-height: 24px;
+							display: -webkit-box;
+						    -webkit-line-clamp: 2;
+						    -webkit-box-orient: vertical;
+						    overflow: hidden;
+						    text-overflow: ellipsis;
+						    text-align: center;
+						    @include media-breakpoint-down(md) {
+						    	font-size: 14px;
+								line-height: 24px;
+						    }
+						    @media screen and (max-width: 600px) {
+						    	font-size: 15px;
+						    	text-align: left;
+						    }
+						//}
+					}
+
+					.contentafterlink {
+						left: 0;
+						right: 0;
+						text-align: center;
+						@include media-breakpoint-down(md) {
+					    	font-size: 14px;
+							line-height: 24px;
+					    }
+					    @media screen and (max-width: 600px) {
+					    	display: none;
+					    }
+					}
+
+					.activitytype {
+						display: none;
+					}
+
+					// Activity color
+					&.assign {
+						.ec-activity__icon {
+							background: $assign;
+						}
+					}
+					&.book {
+						.ec-activity__icon {
+							background: $book;
+						}
+					}
+					&.checklist {
+						.ec-activity__icon {
+							background: $checklist;
+						}
+					}
+					&.choice {
+						.ec-activity__icon {
+							background: $choice;
+						}
+					}
+					&.data {
+						.ec-activity__icon {
+							background: $data;
+						}
+					}
+					&.fairallocation {
+						.ec-activity__icon {
+							background: $fairallocation;
+						}
+					}
+					&.resource {
+						.ec-activity__icon {
+							background: $resource;
+						}
+					}
+					&.forum {
+						.ec-activity__icon {
+							background: $forum;
+						}
+					}
+					&.folder {
+						.ec-activity__icon {
+							background: $folder;
+						}
+					}
+					&.glossary {
+						.ec-activity__icon {
+							background: $glossary;
+						}
+					}
+					&.info {
+						.ec-activity__icon {
+							background: $info;
+						}
+					}
+					&.instruction {
+						.ec-activity__icon {
+							background: $instruction;
+						}
+					}
+					&.label {
+						.ec-activity__icon {
+							background: $label;
+						}
+					}
+					&.lecture {
+						.ec-activity__icon {
+							background: $lecture;
+						}
+					}
+					&.lti {
+						.ec-activity__icon {
+							background: $lti;
+						}
+					}
+					&.page {
+						.ec-activity__icon {
+							background: $page;
+						}
+					}
+					&.questionnaire {
+						.ec-activity__icon {
+							background: $questionnaire;
+						}
+					}
+					&.quiz {
+						.ec-activity__icon {
+							background: $quiz;
+						}
+					}
+					&.reading {
+						.ec-activity__icon {
+							background: $reading;
+						}
+					}
+					&.scorm {
+						.ec-activity__icon {
+							background: $scorm;
+						}
+					}
+					&.url {
+						.ec-activity__icon {
+							background: $url;
+						}
+					}
+					&.video {
+						.ec-activity__icon {
+							background: $video;
+						}
+					}
+
+					.ec-activity__icon {
+						width: 60px;
+						height: 60px;
+						padding: 8px;
+						margin-bottom: 10px;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+						border-radius: 10px;
+						img {
+							width: 100%;
+							height: auto;
+						}
+						@media screen and (max-width: 600px) {
+							width: 40px;
+							height: 40px;
+							margin-right: 10px;
+							margin-bottom: 0;
+							img {
+								width: 28px;
+							}
+						}
+					}
+				}
+			}
+			@include media-breakpoint-down(sm) {
+				.ec-separator {
+					width: 100%;
+				}
+			}
+		}
+
+		/****************************/
+		/*   IN A LESSON - TILES
+		/****************************/
+		ul#single_section_tiles {
+			.content {
+				> .navigation-arrows,
+				> .tileiconcontainer,
+				> .pagesechead,
+				> .summary {
+					display: none;
+				}
+			}
+			
+			.subtiles {
+				width: 100%;
+				padding: 0;
+				.spacer {
+					display: none;
+				}
+				li:not(.label) {
+					flex-basis: inherit;
+					flex-grow: inherit;
+					width: calc(33% - 40px);
+					max-width: inherit;
+					height: auto;
+					max-height: 220px;
+					max-height: 19em;
+					margin: $padding;
+					padding: 0;
+					border: none;
+					background: none;
+					background-image: none !important;
+					border-radius: $padding;
+
+					@media screen and (max-width: 992px) {
+						flex-basis: inherit !important;
+						width: calc(50% - 40px);
+						margin: $padding !important;
+					}
+
+					@media screen and (max-width: 600px) {
+						flex-basis: inherit !important;
+						width: 100%;
+						max-width: 100% !important;
+						padding: 0;
+						margin-left: 0 !important;
+						margin-right: 0 !important;
+					}
+
+					.ec-separator {
+						display: none;
+					}
+
+					.ec-shape {
+						border-radius: 0;
+						&:before {
+							border-radius: 0;
+						}
+					}
+
+					&:hover {
+						border-radius: $padding;
+						background: #fff !important;
+						box-shadow: 1px 1px 15px rgba(0,0,0,0.4);
+						cursor: pointer;
+						.ec-shape {
+							border-radius: $padding $padding 0 0;
+							&:before {
+								border-radius: $padding $padding 0 0;
+							}
+						}
+					}
+
+					> div {
+						padding: 0;
+						.activityinstance {
+							padding: 0;
+							width: 100%;
+						}
+					}
+
+					.subtile_inner {
+						padding: $padding;
+						@media screen and (max-width: 600px) {
+							padding: $padding !important;
+						}
+					}
+
+					.instancename {
+						margin-bottom: 20px;
+					}
+
+					.actions {
+						top: -16px !important;
+						right: -16px;
+					}
+
+					.activitytitle {
+						padding: 0;
+						//a {
+							padding-bottom: 0;
+							background: none;
+							color: $text !important;
+							font-size: 18px !important;
+							line-height: 28px;
+							font-weight: bold;
+						//}
+					}
+
+					.activitytype {
+						position: absolute;
+						top: $padding;
+						left: 80px;
+						font-size: 20px;
+						line-height: 30px;
+						text-transform: none;
+					}
+					
+					.ec-activity__icon {
+						width: 44px;
+						height: 44px;
+						margin-bottom: 10px;
+						display: flex;
+						align-items: flex-start;
+						justify-content: center;
+						img {
+							filter: invert(1) opacity(0.2);
+							width: 100%;
+							height: auto;
+						}
+					}
+				}
+
+				li.subtile.spacer {
+					& + .activity {
+						.ec-separator {
+							display: none;
+						}
+					}
+				}
+
+				/****************************/
+				/*   LABEL
+				/****************************/
+				li.label {
+					margin: 0;
+					padding: 0;
+					border: none;
+					background: none;
+					&:hover {
+						box-shadow: none;
+						background: none;
+					}
+					&.dimmed {
+						opacity: 1;
+					}
+
+					// Hide separator when it's first label?
+					&:nth-of-type(1) {
+						.ec-separator {
+							display: none;
+						}
+					}
+
+					.ec-shape {
+						display: none;
+					}
+
+					.label_content {
+						h1, h2, h3, h4 {
+							padding: 0;
+							border: none;
+							font-size: 18px;
+							font-weight: bold;
+							color: $text;
+						}
+					}
+				}
+			}
+		}
+		
+
+		/****************************/
+		/*   LESSON TILE IN COURSE HOMEPAGE
+		/****************************/
+		ul.tiles {
+			padding: 0 15px;
+			.tile {
+				flex-basis: inherit;
+				width: calc(33% - 40px);
+				max-width: inherit;
+				max-height: 220px;
+				//overflow: hidden;
+				box-shadow: none;
+				margin: $padding;
+				border: none;
+				border-radius: 0;
+				transition: none;
+
+				@media screen and (max-width: 992px) {
+					width: calc(50% - 40px);
+				}
+
+				@media screen and (max-width: 600px) {
+					flex-basis: inherit !important;
+					width: calc(100% - 40px);
+					max-width: 100% !important;
+					padding: 0 !important;
+					margin: $padding 0;
+				}
+				.tile-link {
+					padding: $padding;
+				}
+				.tile-text {
+					padding: 0;
+					line-height: inherit;
+				}
+				.tile-textinner {
+					position: absolute;
+					top: auto;
+					transform: none;
+				}
+
+				.ec-shape {
+					border-radius: 0;
+					&:before {
+						border-radius: 0;
+					}
+				}
+
+				&:hover {
+					.ec-shape {
+						border-radius: 0;
+						&:before {
+							border-radius: 0;
+						}
+					}
+				}
+
+				.ec-tile__title {
+					color: $text;
+					font-size: 20px;
+					font-weight: bold;
+					line-height: 30px;
+					display: -webkit-box;
+				    -webkit-line-clamp: 3;
+				    -webkit-box-orient: vertical;
+				    overflow: hidden;
+				    text-overflow: ellipsis;
+					span {
+						display: block;
+						min-height: 30px;
+						font-weight: normal;
+						* {
+							margin-bottom: 0;
+						}
+					}
+				}
+
+				.ec-separator {
+					width: 30%;
+					margin: $padding/2 0 $padding 0;
+					background: $grey-medium;
+					i {
+						border-color: $grey-medium;
+						&:last-child {
+							display: none;
+						}
+					}
+				}
+
+				.tile-top {
+					height: auto;
+					display: flex;
+					align-items: center;
+					.tileiconcontainer {
+						width: auto;
+						height: auto;
+						.icon,
+						img {
+							margin-right: 10px;
+							color: $grey-dark;
+							width: 20px;
+							height: 20px;
+							font-size: 20px;
+							vertical-align: middle;
+						}
+					}
+					.tiletopright {
+						.progress-indic {
+							color: $grey-dark;
+							font-size: 16px;
+							line-height: 30px;
+						}
+					}
+				}
+
+				.tiletopright {
+					.progress-indic {
+						&.is-complete {
+							position: absolute;
+							top: -15px;
+							right: -15px;
+
+							.fa-check {
+								opacity: 1;
+								width: 30px;
+							    height: 30px;
+							    margin: 0;
+							    background: url([[pix:theme|format_tiles/completion-y]]) no-repeat center center;
+							    background-size: contain;
+							    &:before {
+							        display: none;
+							    }
+							}
+						}
+						.ec-progress {
+							position: absolute;
+							top: -15px;
+							right: -15px;
+							display: block;
+							width: 30px;
+						    height: 30px;
+						    margin: 0;
+						    background: url([[pix:theme|format_tiles/completion-n]]) no-repeat center center;
+						    background-size: contain;
+						}
+					}
+					
+				}
+
+				&.tile-restricted {
+					opacity: 1 !important;
+				}
+
+				/****************************/
+				/*   WITH IMAGE
+				/****************************/
+				&.phototile {
+					width: calc(50% - 40px);
+					background: none !important;
+					padding-top: 200px !important;
+					min-height: 460px;
+					overflow: visible;
+
+					@media screen and (max-width: 992px) {
+						width: calc(100% - 40px);
+					}
+
+					@media screen and (max-width: 600px) {
+						padding-top: 40vw !important;
+					}
+
+					&:hover {
+						box-shadow: none;
+						border-radius: 0;
+						.tile-link {
+							box-shadow: 1px 1px 15px rgba(0,0,0,0.4);
+						}
+					}
+
+					.ec-tile__photo {
+						position: absolute;
+						top: 0;
+						left: $padding;
+						img {
+							max-height: 240px;
+							@media screen and (max-width: 600px) {
+								max-width: 100%;
+							}
+						}
+					}
+
+					.tile-link {
+						border-radius: $padding;
+					}
+
+					.photo-tile-text {
+						position: relative;
+						top: auto;
+						bottom: auto;
+						display: block;
+						padding-top: 40px;
+						height: 150px;
+					}
+
+					.tile-text {
+						display: none;
+					}
+
+					.progress-indic {
+						position: relative;
+						bottom: auto;
+						left: auto;
+						padding: 0;
+					}
+
+					.availabilityinfo {
+						position: relative;
+						bottom: auto;
+						right: auto;
+					}
+				}
+			}
+
+			.tile-clickable {
+				&:hover {
+					transform: none;
+					transition: none;
+					animation: none;
+					border-radius: 0 0 $padding $padding;
+					box-shadow: 1px 1px 15px rgba(0,0,0,0.4);
+					cursor: pointer;
+				}
+			}
+		}
+		
+		/****************************/
+		/*   COMPLETION
+		/****************************/
+		.completion-icon {
+			opacity: 1;
+			width: 30px;
+			height: 30px;
+			background-image: url([[pix:theme|format_tiles/completion-n]]);
+			&.completion-icon-y {
+				background-image: url([[pix:theme|format_tiles/completion-y]]);
+			}
+			&.completion-icon-fail {
+				background-image: url([[pix:theme|format_tiles/completion-fail]]);
+			}
+		}
+	}
+
+	/****************************/
+	/*   EDITING
+	/****************************/
+	&.editing {
+		.ec-page {
+			.section {
+				li {
+					.ec-shape {
+						display: none;
+					}
+
+					.ec-separator {
+						display: none;
+					}
+				}
+				.subtile {
+					border: 1px solid $grey;
+					.action-menu {
+						position: absolute;
+						background: none;
+						top: 16px;
+					}
+					.activityinstance {
+						height: calc(100% - 20px);
+						.activitytype {
+							display: block;
+						}
+						> div {
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							.inplaceeditable {
+								display: flex;
+								flex-direction: column;
+								align-items: center;
+								justify-content: center;
+								text-align: center;
+								font-size: 16px;
+							}
+							&.contentafterlink {
+								font-size: 14px;
+							}
+						}
+					}
+				}
+			}
+
+			ul#multi_section_tiles {
+				li.section:not(#section-0) {
+					.section {
+						margin: 0;
+						padding: 0;
+						li:not(.label) {
+							flex-basis: inherit;
+							flex-grow: inherit;
+							width: calc(33% - 40px);
+							max-width: inherit;
+							max-height: 220px;
+							margin: $padding;
+							padding: 0;
+							background: none;
+							background-image: none !important;
+							border-radius: $padding;
+
+							@media screen and (max-width: 992px) {
+								flex-basis: inherit !important;
+								width: calc(50% - 40px);
+								margin: $padding !important;
+							}
+
+							@media screen and (max-width: 600px) {
+								flex-basis: inherit !important;
+								width: calc(100% - 40px);
+								max-width: 100% !important;
+								padding: 0;
+							}
+
+							.ec-shape {
+								border-radius: 0;
+								&:before {
+									border-radius: 0;
+								}
+							}
+
+							&:hover {
+								background: #fff !important;
+								box-shadow: 1px 1px 15px rgba(0,0,0,0.4);
+								cursor: pointer;
+								.ec-shape {
+									border-radius: 0 0 $padding $padding;
+									&:before {
+										border-radius: 0 0 $padding $padding;
+									}
+								}
+							}
+
+							> div {
+								padding: 0;
+								.activityinstance {
+									padding: 0;
+								}
+							}
+
+							.activityinstance {
+								display: flex;
+								align-items: flex-start;
+								> div {
+									.inplaceeditable {
+										align-items: flex-start;
+										text-align: left;
+									}
+								}
+							}
+
+							.subtile_inner {
+								padding: $padding;
+							}
+
+							.actions {
+								top: -16px !important;
+								right: -16px;
+							}
+
+							.activitytitle {
+								padding: 0;
+								//a {
+									padding-bottom: 0;
+									background: none;
+									color: $text !important;
+									font-size: 18px;
+									line-height: 28px;
+									font-weight: bold;
+								//}
+							}
+
+							.activitytype {
+								position: absolute;
+								top: $padding;
+								left: 80px;
+								top: 40px;
+								font-size: 18px;
+								line-height: 28px;
+								text-transform: none;
+							}
+							
+							.ec-activity__icon {
+								width: 44px;
+								height: 44px;
+								margin-bottom: 10px;
+								display: flex;
+								align-items: flex-start;
+								justify-content: center;
+								img {
+									filter: invert(1) opacity(0.2);
+									width: 100%;
+									height: auto;
+								}
+							}
+						}
+
+						li.label {
+							border: none;
+							.label_content {
+								h1, h2, h3, h4 {
+									padding: 0;
+									border: none;
+									font-size: 18px;
+									font-weight: bold;
+									color: $text;
+								}
+							}
+						}
+					}
+				}
+			}
+
+			ul#single_section_tiles {
+				.subtiles {
+					li:not(.label) {
+						overflow: visible;
+						border: 1px solid $grey !important;
+						.ec-shape {
+							display: none;
+						}
+						.activitytype {
+							top: 40px;
+						}
+						.activityinstance {
+							> div {
+								justify-content: flex-start;
+								.inplaceeditable {
+									align-items: flex-start;
+									justify-content: flex-start;
+									text-align: left;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	/****************************/
+	/*   LESSON LIST VIEW
+	/****************************/
+	.ec-page__lesson-list {
+		ul#single_section_tiles {
+			.section {
+				&.main {
+					margin-top: 0;
+					padding-top: 0;
+					width: 100%;
+				}
+			}
+			.subtiles {
+				li:not(.label) {
+					width: 100%;
+					height: auto;
+					margin: 0 $padding !important;
+
+					@include media-breakpoint-down(sm) {
+						min-height: inherit;
+						margin-left: 0 !important;
+						margin-right: 0 !important;
+						max-width: 100% !important;
+
+						.subtile_inner {
+							padding: $padding !important;
+						}
+					}
+
+					.subtile_inner {
+						padding: $padding;
+					}
+
+					.ec-shape {
+						display: none;
+					}
+
+					.activitytype {
+						padding-left: 0;
+						left: 90px;
+						top: 12px;
+						font-size: 16px;
+					}
+
+					.activitytitle {
+						font-size: 16px;
+						padding-left: $padding;
+						padding-right: 35px;
+						padding-top: 25px;
+					}
+
+					.activityinstance {
+						width: 80%;
+						display: flex;
+						flex-direction: column;
+					}
+
+					.instancename {
+						display: flex;
+						margin-bottom: 0;
+					}
+
+					.contentafterlink {
+						position: relative;
+						padding: 5px 0 0 70px;
+						bottom: auto;
+						z-index: 2;
+					}
+
+					.ec-activity__icon {
+						width: 50px;
+						height: 50px;
+						img {
+							min-width: 50px;
+						}
+					}
+
+					.actions {
+						top: 45px !important;
+						right: $padding !important;
+					}
+				}
+
+				li.subtile.spacer {
+					& + .activity {
+						.ec-separator {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.activityinstance {
+	> a.focus,
+	> a:focus {
+		background: none;
+	}
+}
